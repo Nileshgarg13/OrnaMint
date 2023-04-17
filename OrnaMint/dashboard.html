@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
 <html lang="en" dir="ltr">
-
 <head>
   <meta charset="UTF-8">
   <title> Responsiive Admin Dashboard | CodingLab </title>
@@ -107,9 +106,12 @@
         <input type="text" placeholder="Search...">
         <i class='bx bx-search'></i>
       </div>
+      <div class="sidebar-button">
+        
+        <span id="walletId"></span>
+      </div>
       <div class="profile-details">
-        <img src="assets/images/profile.jpg" alt="">
-        <span class="admin_name">Prem Shahi</span>
+        <button type="button" onclick="connectMetamask()" id="metamaskConnect" style="background:rgb(255,0,0,0.5);"> Connect metamask </button>
         <!-- <i class='bx bx-chevron-down' ></i> -->
       </div>
     </nav>
@@ -163,7 +165,7 @@
       </div>
 
 
-
+      
       <div class="sales-boxes">
         <!-- <div class="recent-sales box">
           <div class="title">Recent Sales</div>
@@ -296,7 +298,29 @@
     </div>
   </section>
 
+  <script src="https://cdn.jsdelivr.net/npm/@metamask/detect-provider"></script>
   <script>
+
+     async function connectMetamask() {
+      const provider = await detectEthereumProvider();
+      if (provider) {
+        try {
+          const accounts = await provider.request({ method: 'eth_requestAccounts' });
+          const address = accounts[0];
+
+          console.log(address)
+          var connectButton=document.getElementById("metamaskConnect")
+          connectButton.style.backgroundColor="rgb(124,252,0,0.5)"
+          var walletaddress=document.getElementById("walletId")
+          walletaddress.textContent=address;
+          // TODO: Send the address to your server for authentication
+        } catch (error) {
+          console.error(error);
+        }
+      } else {
+        alert('Please install Metamask extension to connect your account');
+      }
+    }
     let sidebar = document.querySelector(".sidebar");
     let sidebarBtn = document.querySelector(".sidebarBtn");
     sidebarBtn.onclick = function() {
