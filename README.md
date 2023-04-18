@@ -1,7 +1,7 @@
 # ORNAMINT
 
 ## WORK FLOW
-![image](https://user-images.githubusercontent.com/81522384/232733895-1b091379-146b-4cc0-9a45-13eace723c02.png)
+![image](https://user-images.githubusercontent.com/81522384/232734108-4245efa0-cd6d-4c66-a7fd-0842b30a68f9.png)
 
 
 ## PROBLEM STATEMENT 
