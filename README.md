@@ -1,6 +1,32 @@
 
 # ORNAMINT
 
+## ORNAMINT APPLICATION
+### HOME PAGE
+![image_2023-04-18_15-35-43](https://user-images.githubusercontent.com/81522384/232744656-af98863b-2689-45c2-a427-a828499076b5.png)
+
+### LOGIN 
+![image_2023-04-18_15-36-05](https://user-images.githubusercontent.com/81522384/232745018-f567c057-518f-4d33-b13b-d7ad192e7ff5.png)
+
+### BILL-UPLOAD
+![image_2023-04-18_15-37-36](https://user-images.githubusercontent.com/81522384/232745300-a8dc2dba-cb72-4099-93ce-5e6b068dd554.png)
+
+### PRODUCT PHOTO
+![image_2023-04-18_15-37-56](https://user-images.githubusercontent.com/81522384/232745465-f6f55438-923f-411e-9d9c-935807356c03.png)
+
+
+### SEARCH NFT 
+![image_2023-04-18_15-37-19](https://user-images.githubusercontent.com/81522384/232745171-3101b9c5-c328-4c56-af5e-ae95587e337e.png)
+
+
+
+
+
+## OPENSEA
+![WhatsApp Image 2023-04-18 at 3 31 02 PM](https://user-images.githubusercontent.com/81522384/232743674-6de2b5ca-dbc6-4b2c-b358-b83f0c60f4bf.jpeg)
+
+
+
 ## WORK FLOW
 ![image](https://user-images.githubusercontent.com/81522384/232734108-4245efa0-cd6d-4c66-a7fd-0842b30a68f9.png)
 
@@ -23,6 +49,4 @@ To ensure security, the uploaded data and images are encrypted and stored on IPF
 
 Our website also allows users to easily search through their uploaded data by entering relevant information in the search bar.
 
-## OPENSEA
-![WhatsApp Image 2023-04-18 at 3 31 02 PM](https://user-images.githubusercontent.com/81522384/232743674-6de2b5ca-dbc6-4b2c-b358-b83f0c60f4bf.jpeg)
 
