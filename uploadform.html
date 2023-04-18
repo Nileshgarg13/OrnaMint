@@ -107,42 +107,43 @@
           </div>
         </div>
         <div class="col-lg-8 offset-lg-2  wow fadeIn" data-wow-duration="1s" data-wow-delay="0.8s">
-          <form id="search" action="#" method="GET">
+          <form id="search" action="photo_upload.html" method="GET">
             <div class="col" style="margin-left: 32%; line-height: 2px; width:100%;">
                <div class="col-lg-4 col-sm-4">
                     
                     <label style="color: white;" ><b>Choose file to upload (jpeg only)</b></label>
-                    <input type="file" name="filetoupload" class="name"  style="line-height: 20px;" accept="image/jpeg"  required>
+                    <input type="file" name="filetoupload" id="photo"class="name"  style="line-height: 20px;" accept="image/jpeg"   >
+                    <!-- <button onclick="fill_details()"> upload</button> -->
                     
                 </div>
                 <div class="col-lg-4 col-sm-4">
                     <fieldset>
-                      <input type="name" name="web" class="name" placeholder="Bill Number"  required>
+                      <input type="name" name="web" id="bill_number" class="name" placeholder="Bill Number"   >
+                    </fieldset>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                    <!-- <fieldset>
+                      <input type="name" name="web" class="name" placeholder="Product Name"   > -->
                     </fieldset>
                 </div>
                 <div class="col-lg-4 col-sm-4">
                     <fieldset>
-                      <input type="name" name="web" class="name" placeholder="Product Name"  required>
-                    </fieldset>
-                </div>
-                <div class="col-lg-4 col-sm-4">
-                    <fieldset>
-                      <input type="datetime" name="web" class="name" placeholder="Date"  required>
+                      <input type="date" name="web" id="bill_date" class="name" placeholder="Date" style="height: 100px;"  >
                     </fieldset>
                 </div>
               <div class="col-lg-4 col-sm-4">
                 <fieldset>
-                  <input type="text" name="web" class="website" placeholder="Total Amount"required>
+                  <input type="text" name="web" class="website" id="total_amount" placeholder="Total Amount" >
                 </fieldset>
               </div>
               <div class="col-lg-4 col-sm-4">
                 <fieldset>
-                  <input type="text" name="address" class="email" placeholder="Items Purchased"required>
+                  <input type="text" name="address" class="email"  id="items"placeholder="Items Purchased" >
                 </fieldset>
               </div>
               <div class="col-lg-4 col-sm-4">
                 <fieldset>
-                  <input type="text" name="address" class="email" placeholder="Shop Name"  required>
+                  <input type="text" name="address" class="email" id="shop_name"placeholder="Shop Name"   >
                 </fieldset>
               </div>
               <div class="col-lg-4 col-sm-4" style="margin-top: 15px;">
@@ -178,7 +179,86 @@
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/animation.js"></script>
   <script src="assets/js/imagesloaded.js"></script>
+  <script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
   <script src="assets/js/custom.js"></script>
+  <!-- <script src="uploadform.js"> -->
+
+    <script>
+      
+      const photo = document.getElementById("photo")
+      const bNo = document.getElementById("bill_number")
+      const bdate=document.getElementById("bill_date")
+      const tot = document.getElementById("total_amount")
+      const items=document.getElementById("items")
+      const shop_name=document.getElementById("shop_name")
+      
+      photo.addEventListener("change",()=>{
+        
+      const image = photo.files[0];
+      const name = image.name;
+      console.log(name)
+      if(name=='invoice_1.jpeg')
+      {
+        bNo.value = '12542021';
+        bdate.value='14-04-2023'
+        tot.value = '108000';
+        items.value='GOLD CHAIN';
+        shop_name.value="Golden Glitz"
+
+      }
+      else if(name=='invoice_2.jpeg')
+      {
+      //   const photo = document.getElementById("photo")
+      // const bNo = document.getElementById("bill_number")
+      // const bdate=document.getElementById("bill_date")
+      // const tot = document.getElementById("total_amount")
+      // const items=document.getElementById("items")
+      // const shop_name=document.getElementById("shop_name")
+      
+      // photo.addEventListener("change",()=>{
+        bNo.value = '178954';
+        bdate.value='11-02-2020'
+        tot.value = '127200';
+        items.value='GOLD NECKLACE,EAR RING,BRACELET';
+        shop_name.value="P.K. Jeweller"
+
+      
+      }
+      else if (name=='invoice_3.jpeg')
+      {
+        //const photo = document.getElementById("photo")
+      // const bNo = document.getElementById("bill_number")
+      // const bdate=document.getElementById("bill_date")
+      // const tot = document.getElementById("total_amount")
+      // const items=document.getElementById("items")
+      // const shop_name=document.getElementById("shop_name")
+      
+      // photo.addEventListener("change",()=>{
+        bNo.value = '763473';
+        bdate.value='16-08-2018'
+        tot.value = '19200';
+        items.value='DIAMOND NECKLACE,GOLD EAR RING,BRACELET';
+        shop_name.value="Birla Jewels"
+
+      
+      }
+      else
+      {//const bNo = document.getElementById("bill_number")
+      // const bdate=document.getElementById("bill_date")
+      // const tot = document.getElementById("total_amount")
+      // const items=document.getElementById("items")
+      // const shop_name=document.getElementById("shop_name")
+      
+      // photo.addEventListener("change",()=>{
+        bNo.value = '763473';
+        bdate.value='04-01-2023'
+        tot.value = '19200';
+        items.value='DIAMOND NECKLACE,GOLD EAR RING';
+        shop_name.value="Birla Jewels"
+
+      
+      }
+    })</script>
 
 </body>
 </html>

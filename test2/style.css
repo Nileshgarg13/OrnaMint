@@ -1,0 +1,21 @@
+body {
+	font-family: Arial, sans-serif;
+}
+
+h1 {
+	text-align: center;
+}
+
+form {
+	margin: 0 auto;
+	width: 50%;
+}
+
+label {
+	display: inline-block;
+	width: 100px;
+}
+
+input[type="text"], textarea {
+	width: 250px;
+}

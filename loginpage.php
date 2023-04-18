@@ -46,16 +46,16 @@
         <div class="row">
           <div class="col-lg-8 col-sm-8 col-7">
             <ul class="info">
-              <li><a href="#"><i class="fa fa-envelope"></i>digimedia@company.com</a></li>
+              <li><a href="#"><i class="fa fa-envelope"></i>ornamint@company.com</a></li>
               <li><a href="#"><i class="fa fa-phone"></i>010-020-0340</a></li>
             </ul>
           </div>
           <div class="col-lg-4 col-sm-4 col-5">
             <ul class="social-media">
               <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i class="fa fa-behance"></i></a></li>
+              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
               <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+              <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
             </ul>
           </div>
         </div>
@@ -71,7 +71,7 @@
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
             <a href="index.html" class="logo">
-              <img src="assets/images/logo_transparent.png" alt="" height="100px" width="auto">
+              <img src="assets/images/logo ornamint.png" style="width: 50%;" alt="">
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
@@ -79,10 +79,10 @@
               <li class="scroll-to-section"><a href="./homepage_1.html" class="active">Home</a></li>
               <li class="scroll-to-section"><a href="./homepage_1.html">About</a></li>
               <li class="scroll-to-section"><a href="./homepage_1.html">Services</a></li>
-              <li class="scroll-to-section"><a href="./homepage_1.html">Projects</a></li>
+              <!-- <li class="scroll-to-section"><a href="./homepage_1.html">Projects</a></li>
               <li class="scroll-to-section"><a href="./homepage_1.html">Blog</a></li>
-              <li class="scroll-to-section"><a href="./homepage_1.html">Contact</a></li> 
-              <li class="scroll-to-section"><div class="border-first-button"><a href="#contact">Free Quote</a></div></li> 
+              <li class="scroll-to-section"><a href="./homepage_1.html">Contact</a></li>  -->
+              <li class="scroll-to-section"><div class="border-first-button"><a href="homepage_1.html">Back</a></div></li> 
             </ul>        
             <a class='menu-trigger'>
                 <span>Menu</span>
@@ -149,8 +149,8 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p>Copyright © 2022 DigiMedia Co., Ltd. All Rights Reserved. 
-          <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a></p>
+          <p>Copyright © 2022 Ornamint Co., Ltd. All Rights Reserved. 
+          <!-- <br>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a></p> -->
         </div>
       </div>
     </div>
