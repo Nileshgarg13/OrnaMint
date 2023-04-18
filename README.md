@@ -1,18 +1,4 @@
-<<<<<<< HEAD
-# Sample Hardhat Project
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
-=======
 # ORNAMINT
 
 ## WORK FLOW
@@ -29,11 +15,10 @@ Moreover, by using non-fungible tokens (NFTs), users can view their financial da
 
 
 ## ARCHITECTURE
-Upon registering or logging in to our website, users simply click the "add" button at the bottom of their screen to add new data. Users can access their profile page where they can view the history of their uploaded data. 
+Our website allows users to register or log in and easily add new data by clicking the "add" button at the bottom of the screen. The uploaded data is displayed in the user's profile page, which also shows the history of all uploaded data.
 
-When users upload a bill photo, our artificial intelligence and machine learning algorithm extract the data from the bill and display it to the user for verification. Once the user confirms the data is correct, they can upload price,photos of the product and click "submit".
+When a user uploads a photo of their bill, our artificial intelligence and machine learning algorithm extract the data from the bill, which is then presented to the user for verification. Once the user confirms the accuracy of the extracted data, they can upload additional details such as price and photos of the product before submitting it.
 
-The data and the image is then encrypted and stored on IPFS, with the CID of the data being recorded in a smart contract. This creates a unique NFT for the data, which serves as a digital ownership certificate of the bill and is displayed to the user in the front-end.
+To ensure security, the uploaded data and images are encrypted and stored on IPFS, with a unique CID recorded in a smart contract. This generates a unique NFT for the data, which serves as a digital ownership certificate for the bill and is visible to the user in the website's front-end.
 
-Users can easily search through their uploaded details by entering relevant information in the search bar.
->>>>>>> 08928a46d1aa2ae84ef5a42bf5885b23c757764b
+Our website also allows users to easily search through their uploaded data by entering relevant information in the search bar.
