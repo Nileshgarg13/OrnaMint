@@ -7,3 +7,13 @@ Despite these challenges, blockchain technology continues to evolve, and ongoing
 ## IDEA
 The proposed project aims to offer a convenient and secure platform for users to manage their financial data. By integrating with the Ethereum blockchain, users can log in using their Ethereum account, providing a secure and decentralized login method. The platform will enable users to upload pictures of their bills and photos of products, and through advanced data extraction techniques, the platform will extract data from the bills to create a record of their financial transactions. This data will then be stored securely on a decentralized platform, which ensures that the information is tamper-proof and easily accessible to users whenever they need it.
 Moreover, by using non-fungible tokens (NFTs), users can view their financial data in a more visual and user-friendly manner. Each financial transaction will be represented as a unique NFT, and users can track their financial data through a simple and intuitive user interface. This will enable users to have a better understanding of their financial transactions and make more informed decisions about their finances. Overall, this project will empower users to take control of their financial data and provide a secure and user-friendly platform for managing their finances.
+
+
+## ARCHITECTURE
+Upon registering or logging in to our website, users simply click the "add" button at the bottom of their screen to add new data. Users can access their profile page where they can view the history of their uploaded data. 
+
+When users upload a bill photo, our artificial intelligence and machine learning algorithm extract the data from the bill and display it to the user for verification. Once the user confirms the data is correct, they can upload price,photos of the product and click "submit".
+
+The data and the image is then encrypted and stored on IPFS, with the CID of the data being recorded in a smart contract. This creates a unique NFT for the data, which serves as a digital ownership certificate of the bill and is displayed to the user in the front-end.
+
+Users can easily search through their uploaded details by entering relevant information in the search bar.
