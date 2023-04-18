@@ -71,7 +71,7 @@
           <nav class="main-nav">
             <!-- ** Logo Start ** -->
             <a href="index.html" class="logo">
-              <img src="assets/images/logo ornamint.png" style="width: 50%;" alt="">
+              <img src="assets/images/logo_transparent.png" style="width: 50%;" alt="">
             </a>
             <!-- ** Logo End ** -->
             <!-- ** Menu Start ** -->
@@ -107,36 +107,36 @@
           </div>
         </div>
         <div class="col-lg-8 offset-lg-2  wow fadeIn" data-wow-duration="1s" data-wow-delay="0.8s">
-          <form id="search" action="upload.php" method="post" enctype="multipart/form-data">
+          <form id="search" action="final.php" method="post" enctype="multipart/form-data">
             <div class="col" style="margin-left: 32%; line-height: 2px; width:100%;">
                
                 <div class="col-lg-4 col-sm-4">
                     <br><br><br><br><br><br><br><br><br><br><br><br><br>
                 <label for="fileToUpload" style="color: white;" > Upload product image 1(jpeg only)</label>
-                <input type="file" name="filetoupload" id="filetoupload" class="name"  style="line-height: 20px;" required>
+                <input type="file" name="fileToupload" id="fileToupload" class="name"  style="line-height: 20px;" required>
                 
             </div>
             <div class="col-lg-4 col-sm-4">
               <br><br><br><br><br><br><br><br><br><br><br><br><br>
-              <label for="fileToUpload" style="color: white;" > Upload product image 4(jpeg only)</label>
-                <input type="file" name="filetoUpload" id="filetoUpload" class="name"  style="line-height: 20px;" required>
+              <label for="fileToUpload" style="color: white;" > Upload product image 2(jpeg only)</label>
+                <input type="file" name="fileToupload" id="fileToupload" class="name"  style="line-height: 20px;" required>
               
           </div>
           <div class="col-lg-4 col-sm-4">
             <br><br><br><br><br><br><br><br><br><br><br><br><br>
-            <label for="fileToUpload" style="color: white;" > Upload product image 4(jpeg only)</label>
-                <input type="file" name="filetoUpload" id="filetoUpload" class="name"  style="line-height: 20px;" required>
+            <label for="fileToUpload" style="color: white;" > Upload product image 3(jpeg only)</label>
+                <input type="file" name="fileToupload" id="fileToupload" class="name"  style="line-height: 20px;" required>
             
         </div>
         <div class="col-lg-4 col-sm-4">
           <br><br><br><br><br><br><br><br><br><br><br><br><br>
           <label for="fileToUpload" style="color: white;" > Upload product image 4(jpeg only)</label>
-                <input type="file" name="filetoUpload" id="filetoUpload" class="name"  style="line-height: 20px;" required>
+                <input type="file" name="fileToupload" id="fileToupload" class="name"  style="line-height: 20px;" required>
           
       </div>
               <div class="col-lg-4 col-sm-4" style="margin-top: 15px;">
                 <fieldset>
-                  <input type="submit" value="Submit" name= "submit" class="main-button" style="font-size: 18px;">
+<a href="./test5/index.html">Mint</a>
                 </fieldset>
 
               </div>
@@ -168,6 +168,47 @@
   <script src="assets/js/animation.js"></script>
   <script src="assets/js/imagesloaded.js"></script>
   <script src="assets/js/custom.js"></script>
+  <script>// Function to handle button click event
+// First, check if Metamask is installed and connected
+if (typeof window.ethereum === 'undefined' || !window.ethereum.isMetaMask) {
+  alert('Please install and connect to Metamask to use this feature.');
+} else {
+  // If Metamask is installed and connected, get the user's account
+  window.ethereum.request({ method: 'eth_requestAccounts' }).then(function(accounts) {
+    const account = accounts[0];
+
+    // Define the transaction options, including gas fees
+    const options = {
+      from: account,
+      gasPrice: web3.utils.toWei('20', 'gwei'), // Replace with desired gas price
+      gas: 50000 // Replace with desired gas limit
+    };
+
+    // Listen for button click event
+    const button = document.querySelector('#myButton');
+    button.addEventListener('click', function() {
+      // Send the transaction and prompt the user to confirm in Metamask
+      web3.eth.sendTransaction(options, function(error, hash) {
+        if (error) {
+          console.error(error);
+        } else {
+          // Prompt user to confirm transaction in Metamask
+          window.ethereum.request({
+            method: 'eth_sendTransaction',
+            params: [{ to: account, from: account, gasPrice: options.gasPrice, gas: options.gas }]
+          }).then(function(result) {
+            console.log(result);
+          }).catch(function(error) {
+            console.error(error);
+          });
+        }
+      });
+    });
+  }).catch(function(error) {
+    console.error(error);
+  });
+}</script>
 
 </body>
 </html>
+

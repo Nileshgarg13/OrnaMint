@@ -1,36 +1,72 @@
-<?php
-session_start();
-if (!isset($_SESSION['mail'])) {
-  header('location: loginpage.php');
-}
-
-$mail = $_SESSION['mail'];
-
-?>
-
 <!DOCTYPE html>
 <!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
 <html lang="en" dir="ltr">
-
 <head>
   <meta charset="UTF-8">
-  <title> Dashboard-Ornamint </title>
+  <title> Dashboard  </title>
   <link rel="stylesheet" href="style.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/@metamask/detect-provider"></script>
+  <script>
+     async function connectMetamask() {
+      const provider = await detectEthereumProvider();
+      if (provider) {
+        try {
+          const accounts = await provider.request({ method: 'eth_requestAccounts' });
+          const address = accounts[0];
+
+          console.log(address)
+          var connectButton=document.getElementById("metamaskConnect")
+          connectButton.style.backgroundColor="rgb(124,252,0,0.5)"
+          var walletaddress=document.getElementById("walletId")
+          walletaddress.textContent=address;
+          // TODO: Send the address to your server for authentication
+        } catch (error) {
+          console.error(error);
+        }
+      } else {
+        alert('Please install Metamask extension to connect your account');
+      }
+      window.onpaint=connectMetamask()
+    }
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".sidebarBtn");
+    sidebarBtn.onclick = function() {
+      sidebar.classList.toggle("active");
+      if (sidebar.classList.contains("active")) {
+        sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+      } else
+        sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+    }
+  </script>
   <!-- Boxicons CDN Link -->
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
   <div class="sidebar">
     <div class="logo-details">
-      <i class='bx bxl-c-plus-plus'></i>
-      <span class="logo_name" style="font-size: 15px;"><?php echo $mail; ?></span>
+     <img src="assets/images/logo ornamint.png" style="width: 100%; height: 70%;"alt="">
     </div>
     <ul class="nav-links">
       <li>
@@ -46,9 +82,9 @@ $mail = $_SESSION['mail'];
         </a>
       </li>
       <li>
-        <a href="photoupload.html">
+        <a href="transfers.html">
           <i class='bx bx-box'></i>
-          <span class="links_name">Photo Upload</span>
+          <span class="links_name">Transfers</span>
         </a>
       </li>
       <!-- <li>
@@ -111,19 +147,19 @@ $mail = $_SESSION['mail'];
     <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
+        <script src="https://cdn.jsdelivr.net/npm/@metamask/detect-provider"></script>
         <span class="dashboard">Dashboard</span>
       </div>
       <div class="search-box">
-        <input type="text" placeholder="Search..." id="myInput" onkeyup="myFunction()">
+        <input type="text" placeholder="Search...">
         <i class='bx bx-search'></i>
       </div>
       <div class="sidebar-button">
         
         <span id="walletId"></span>
       </div>
-      <div class="profile-details" style="background: rgb(255, 0, 0, 0.5);">
-        <img src="assets/images/MetaMask.png" alt="">
-        <button type="button" onclick="connectMetamask()" id="metamaskConnect" style="border: 0px; background: rgb(0, 0, 0, 0);">Connect Metamask</button>
+      <div class="profile-details">
+        <button type="button" onclick="connectMetamask()" id="metamaskConnect" style="background:rgb(255,0,0,0.5);"> Connect metamask </button>
         <!-- <i class='bx bx-chevron-down' ></i> -->
       </div>
     </nav>
@@ -133,7 +169,7 @@ $mail = $_SESSION['mail'];
         <div class="box">
           <div class="right-side">
             <div class="box-topic">Total Order</div>
-            <div class="number">40,876</div>
+            <div class="number">272400</div>
             <div class="indicator">
               <i class='bx bx-up-arrow-alt'></i>
               <span class="text">Up from yesterday</span>
@@ -177,7 +213,7 @@ $mail = $_SESSION['mail'];
       </div>
 
 
-
+      
       <div class="sales-boxes">
         <!-- <div class="recent-sales box">
           <div class="title">Recent Sales</div>
@@ -244,110 +280,74 @@ $mail = $_SESSION['mail'];
           </div> 
         </div> -->
         <div class="top-sales box">
-                    <div class="title"> YOUR RECENT PURCHASES</div>
-
-
-                    <table class="tg" style="table-layout: fixed; width: 361px" id="myTable">
-                        <colgroup>
-                            <col style="width: 200px">
-                            <col style="width: 200px">
-                            <col style="width: 200px">
-                            <col style="width: 200px">
-                        </colgroup>
-                        <thead>
-                            <th class="tg-0lax">IMAGE</th>
-                            <th class="tg-0lax">DATE</th>
-                            <th class="tg-0lax">AMOUNT</th>
-                            <th class="tg-0lax">ITEMS</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="tg-0lax"><a href="https://cloudflare-ipfs.com/ipfs/QmTxyAPt24DxEYHQNqnizTqnNDzA5Ls7pkc9UQRZ63t9cT"><img src="./nft/one.jpeg"
-                                            style="width:150px;height:150px"></a></td>
-                                <td class="tg-0lax">14-04-2023</td>
-                                <td class="tg-0lax">108000</td>
-                                <td class="tg-0lax">GOLD CHAIN</td>
-                            </tr>
-
-
-                            <tr>
-                                <td class="tg-0lax"><a href="https://cloudflare-ipfs.com/ipfs/QmfUQMUsdCa2FpMxyy3FgMr6zw78sRYkUFgWFuLeRacPrd"><img src="./nft/two.jpeg"
-                                            style="width:150px;height:150px " alt=""></a></td>
-                                <td class="tg-0lax">11-02-2020</td>
-                                <td class="tg-0lax">127200</td>
-                                <td class="tg-0lax">GOLD NECKLACE,EAR RING,BRACELET</td>
-                            </tr>
-                            <tr>
-                                <td class="tg-0lax"><a href="https://cloudflare-ipfs.com/ipfs/Qmeo2RAPnFytzoo4LQF3CNxP6zgpmUq7SXf7sxW42A3jHc"><img src="./nft/three.jpeg"
-                                            style="width:150px;height:150px " alt=""></a></td>
-                                <td class="tg-0lax">16-08-2018</td>
-                                <td class="tg-0lax">19200</td>
-                                <td class="tg-0lax">DIAMOND NECKLACE,GOLD EAR RING,BRACELET</td>
-                            </tr>
-                            <tr>
-                                <td class="tg-0lax"><a href="https://cloudflare-ipfs.com/ipfs/QmdCR7HwyecfoVntYKwoJsrUDPi8g3Fa7yNGryBJVy6YYz"><img src="./nft/four.jpeg" style="width:150px;height:150px" alt=""></a>
-                                </td>
-                                <td class="tg-0lax">04-01-2023</td>
-                                <td class="tg-0lax">18000</td>
-                                <td class="tg-0lax">DIAMOND NECKLACE,GOLD EAR RING</td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-
-  <script src="https://cdn.jsdelivr.net/npm/@metamask/detect-provider"></script>
-  <script>
-    async function connectMetamask() {
-      const provider = await detectEthereumProvider();
-      if (provider) {
-        try {
-          const accounts = await provider.request({ method: 'eth_requestAccounts' });
-          const address = accounts[0];
-
-          console.log(address)
-          var connectButton=document.getElementById("metamaskConnect")
-          connectButton.style.backgroundColor="rgb(124,252,0,0.5)"
-          var walletaddress=document.getElementById("walletId")
-          walletaddress.textContent=address;
-          // TODO: Send the address to your server for authentication
-        } catch (error) {
-          console.error(error);
-        }
-      } else {
-        alert('Please install Metamask extension to connect your account');
-      }
-    }
-    let sidebar = document.querySelector(".sidebar");
-    let sidebarBtn = document.querySelector(".sidebarBtn");
-    sidebarBtn.onclick = function() {
-      sidebar.classList.toggle("active");
-      if (sidebar.classList.contains("active")) {
-        sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
-      } else
-        sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+          <div class="title"> YOUR RECENT PURCHASES</div>
+          <ul class="top-sales-details">
+            <li>
+              <table class="tg" style="table-layout: fixed; width: 361px">
+                <colgroup>
+                <col style="width: 200px">
+                <col style="width: 200px">
+                <col style="width: 200px">
+                <col style="width: 200px">
+                </colgroup>
+                <thead>
+                  <th class="tg-0lax">IMAGE</th>
+                  <th class="tg-0lax">DATE</th>
+                  <th class="tg-0lax">AMOUNT</th>
+                  <th class="tg-0lax">ITEMS</th>
+                  </thead>
+                  <tr>
+                    <td class="tg-0lax"><a href="https://cloudflare-ipfs.com/ipfs/QmX9mPeU7CiKehJmaEinFd2b5YTgEvuhcTuKrEaTRxQ5wi?filename=ipfs.png0"><img src="https://cloudflare-ipfs.com/ipfs/QmX9mPeU7CiKehJmaEinFd2b5YTgEvuhcTuKrEaTRxQ5wi?filename=ipfs.png0" style="width:150px;height:150px"></a></td>
+                    <td class="tg-0lax">14-04-2023</td>
+                    <td class="tg-0lax">108000</td>
+                    <td class="tg-0lax">GOLD CHAIN</td>
+                  </tr>
+                
+                <tbody>
+                  <tr>
+                    <td class="tg-0lax"><a href="https://cloudflare-ipfs.com/ipfs/QmX9mPeU7CiKehJmaEinFd2b5YTgEvuhcTuKrEaTRxQ5wi?filename=ipfs.png1"><img src="https://cloudflare-ipfs.com/ipfs/QmX9mPeU7CiKehJmaEinFd2b5YTgEvuhcTuKrEaTRxQ5wi?filename=ipfs.png1" style="width:150px;height:150px "alt=""></a></td>
+                    <td class="tg-0lax">11-02-2020</td>
+                    <td class="tg-0lax">127200</td>
+                    <td class="tg-0lax">GOLD NECKLACE,EAR RING,BRACELET</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax"><a href="https://cloudflare-ipfs.com/ipfs/QmX9mPeU7CiKehJmaEinFd2b5YTgEvuhcTuKrEaTRxQ5wi?filename=ipfs.png2"><img src="https://cloudflare-ipfs.com/ipfs/QmX9mPeU7CiKehJmaEinFd2b5YTgEvuhcTuKrEaTRxQ5wi?filename=ipfs.png2"style="width:150px;height:150px " alt=""></a></td>
+                    <td class="tg-0lax">16-08-2018</td>
+                    <td class="tg-0lax">19200</td>
+                    <td class="tg-0lax">DIAMOND NECKLACE,GOLD EAR RING,BRACELET</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                  </tr>
+                  <tr>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                    <td class="tg-0lax"></td>
+                  </tr>
+                </tbody>
+                </table>
+          </ul>
+          <!-- <table id="imageTable">
+            <thead>
+              <tr>
+                <th>Image</th>
+              </tr>
+            </thead>
+            <tbody>
+            Images will be dynamically added here -->
+            </tbody>
+          </table> 
         
-    }
-  </script>
-<script>
-function myFunction() {
-  var input, filter, table, tr, td, i, txtValue;
-  input = document.getElementById("myInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[3];
-    if (td) {
-      txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }       
-  }
-}
-</script>
+        </div> 
+      </div>
+    </div>
+  </section>
+
+  
 
 </body>
 
