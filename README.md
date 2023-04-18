@@ -22,3 +22,7 @@ When a user uploads a photo of their bill, our artificial intelligence and machi
 To ensure security, the uploaded data and images are encrypted and stored on IPFS, with a unique CID recorded in a smart contract. This generates a unique NFT for the data, which serves as a digital ownership certificate for the bill and is visible to the user in the website's front-end.
 
 Our website also allows users to easily search through their uploaded data by entering relevant information in the search bar.
+
+## OPENSEA
+![WhatsApp Image 2023-04-18 at 3 31 02 PM](https://user-images.githubusercontent.com/81522384/232743674-6de2b5ca-dbc6-4b2c-b358-b83f0c60f4bf.jpeg)
+
