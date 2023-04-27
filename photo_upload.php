@@ -71,7 +71,7 @@
           <nav class="main-nav">
             <!-- ** Logo Start ** -->
             <a href="index.html" class="logo">
-              <img src="assets/images/logo_transparent.png" style="width: 50%;" alt="">
+              <img src="#" style="width: 50%;" alt="">
             </a>
             <!-- ** Logo End ** -->
             <!-- ** Menu Start ** -->
